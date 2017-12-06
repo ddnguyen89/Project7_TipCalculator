@@ -1,0 +1,54 @@
+TASK com.murach.tipcalculator id=68 userId=0
+  ACTIVITY com.murach.tipcalculator/.TipCalculatorActivity a83f6b5 pid=19547
+    Local Activity 9df017a State:
+      mResumed=true mStopped=false mFinished=false
+      mChangingConfigurations=false
+      mCurrentConfig={1.0 310mcc260mnc [en_US] ldltr sw411dp w411dp h659dp 420dpi nrml port finger -keyb/v/h -nav/h appBounds=Rect(0, 0 - 1080, 1794) s.6}
+      mLoadersStarted=true
+      FragmentManager misc state:
+        mHost=android.app.Activity$HostCallbacks@4c2fd2b
+        mContainer=android.app.Activity$HostCallbacks@4c2fd2b
+        mCurState=5 mStateSaved=false mDestroyed=false
+    ViewRoot:
+      mAdded=true mRemoved=false
+      mConsumeBatchedInputScheduled=false
+      mConsumeBatchedInputImmediatelyScheduled=false
+      mPendingInputEventCount=0
+      mProcessInputEventsScheduled=false
+      mTraversalScheduled=false      mIsAmbientMode=false
+      android.view.ViewRootImpl$NativePreImeInputStage: mQueueLength=0
+      android.view.ViewRootImpl$ImeInputStage: mQueueLength=0
+      android.view.ViewRootImpl$NativePostImeInputStage: mQueueLength=0
+    Choreographer:
+      mFrameScheduled=false
+      mLastFrameTime=13632510 (472 ms ago)
+    View Hierarchy:
+      DecorView@a6b1588[TipCalculatorActivity]
+        com.android.internal.widget.ActionBarOverlayLayout{f57cb21 V.ED..... ........ 0,0-1080,1794 #1020216 android:id/decor_content_parent}
+          android.widget.FrameLayout{68caf36 V.E...... ........ 0,189-1080,1794 #1020002 android:id/content}
+            android.widget.RelativeLayout{4cbbb46 V.E...... ........ 0,0-1080,1605}
+              android.widget.TextView{4e8e210 V.ED..... ........ 26,26-356,149 #7f070000 app:id/billAmountLabel}
+              android.widget.EditText{4695109 VFED..CL. .F...... 369,34-865,144 #7f070001 app:id/billAmountEditText}
+              android.widget.TextView{d7e6f0e V.ED..... ........ 26,149-265,272 #7f070002 app:id/percentLabel}
+              android.widget.TextView{77fbd2f V.ED..... ........ 369,162-494,259 #7f070003 app:id/percentTextView}
+              android.widget.Button{e620f3c VFED..C.. ........ 560,148-678,266 #7f070004 app:id/percentDownButton}
+              android.widget.Button{4ccf4c5 VFED..C.. ........ 678,144-796,262 #7f070005 app:id/percentUpButton}
+              android.widget.TextView{3366e1a V.ED..... ........ 26,272-155,395 #7f070006 app:id/tipLabel}
+              android.widget.TextView{5d4fd4b V.ED..... ........ 369,285-529,382 #7f070007 app:id/tipTextView}
+              android.widget.TextView{3dee328 V.ED..... ........ 26,395-196,518 #7f070008 app:id/totalLabel}
+              android.widget.TextView{80d1841 V.ED..... ........ 369,408-559,505 #7f070009 app:id/totalTextView}
+          com.android.internal.widget.ActionBarContainer{10d3e37 V.ED..... ........ 0,63-1080,189 #102017d android:id/action_bar_container}
+            com.android.internal.widget.ActionBarView{bf24107 V.E...... ........ 0,0-1080,126 #102017c android:id/action_bar}
+              android.widget.LinearLayout{1226fa4 V.....C.. ........ 21,0-438,126}
+                com.android.internal.widget.ActionBarView$HomeView{fec88c2 V.E...... ........ 0,0-105,126}
+                  android.widget.ImageView{8600234 G.ED..... ......I. 0,0-0,0 #1020476 android:id/up}
+                  android.widget.ImageView{9c4f85d V.ED..... ........ 10,21-94,105 #102002c android:id/home}
+                android.widget.LinearLayout{16d86d3 V.E...... ........ 105,31-417,94}
+                  android.widget.TextView{17845d2 V.ED..... ........ 0,0-291,63 #1020180 android:id/action_bar_title}
+                  android.widget.TextView{7e7e6a3 G.ED..... ......I. 0,0-0,0 #102017f android:id/action_bar_subtitle}
+              android.widget.ActionMenuView{685b10d V.E...... ......ID 1080,0-1080,126}
+            com.android.internal.widget.ActionBarContextView{b150da0 G.E...... ......ID 0,0-0,0 #1020181 android:id/action_context_bar}
+          com.android.internal.widget.ActionBarContainer{bddbd59 G.ED..... ......ID 0,0-0,0 #10203f1 android:id/split_action_bar}
+    Looper (main, tid 2) {8f0ed1e}
+      Message 0: { when=+12ms callback=android.widget.Editor$Blink target=android.view.ViewRootImpl$ViewRootHandler }
+      (Total messages: 1, polling=false, quitting=false)
