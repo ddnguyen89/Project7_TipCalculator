@@ -1,4 +1,4 @@
-package com.murach.tipcalculator.data;
+package nguyen.tipcalculator.data;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.murach.tipcalculator.Tip;
+import nguyen.tipcalculator.Tip;
 
 import java.util.ArrayList;
 
@@ -34,7 +34,7 @@ public class Database extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTable = "CREATE TABLE IF NOT EXIST " + TABLE_TIPS + " (" +
+        String createTable = "CREATE TABLE " + TABLE_TIPS + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 BILL_DATE + " INTEGER, " +
                 BILL_AMOUNT + " REAL, " +

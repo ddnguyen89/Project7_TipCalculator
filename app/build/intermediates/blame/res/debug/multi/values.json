@@ -11,7 +11,14 @@
                     "endOffset": 102
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 17,
+                        "endColumn": 51,
+                        "endOffset": 64
+                    }
                 }
             },
             {
@@ -23,7 +30,14 @@
                     "endOffset": 135
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 257,
+                        "endColumn": 40,
+                        "endOffset": 293
+                    }
                 }
             },
             {
@@ -35,7 +49,14 @@
                     "endOffset": 193
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 198,
+                        "endColumn": 57,
+                        "endOffset": 251
+                    }
                 }
             },
             {
@@ -47,7 +68,14 @@
                     "endOffset": 232
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 441,
+                        "endColumn": 38,
+                        "endOffset": 475
+                    }
                 }
             },
             {
@@ -78,7 +106,14 @@
                     "endOffset": 328
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 401,
+                        "endColumn": 38,
+                        "endOffset": 435
+                    }
                 }
             },
             {
@@ -90,7 +125,14 @@
                     "endOffset": 379
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 144,
+                        "endColumn": 50,
+                        "endOffset": 190
+                    }
                 }
             },
             {
@@ -102,7 +144,14 @@
                     "endOffset": 424
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 687,
+                        "endColumn": 44,
+                        "endOffset": 727
+                    }
                 }
             },
             {
@@ -114,7 +163,14 @@
                     "endOffset": 469
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 537,
+                        "endColumn": 44,
+                        "endOffset": 577
+                    }
                 }
             },
             {
@@ -126,7 +182,14 @@
                     "endOffset": 518
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 487,
+                        "endColumn": 48,
+                        "endOffset": 531
+                    }
                 }
             },
             {
@@ -138,7 +201,14 @@
                     "endOffset": 562
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 356,
+                        "endColumn": 43,
+                        "endOffset": 395
+                    }
                 }
             },
             {
@@ -150,7 +220,14 @@
                     "endOffset": 616
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 301,
+                        "endColumn": 53,
+                        "endOffset": 350
+                    }
                 }
             },
             {
@@ -162,7 +239,14 @@
                     "endOffset": 689
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 70,
+                        "endColumn": 72,
+                        "endOffset": 138
+                    }
                 }
             },
             {
@@ -174,7 +258,14 @@
                     "endOffset": 736
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 639,
+                        "endColumn": 46,
+                        "endOffset": 681
+                    }
                 }
             },
             {
@@ -186,7 +277,14 @@
                     "endOffset": 789
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 585,
+                        "endColumn": 52,
+                        "endOffset": 633
+                    }
                 }
             },
             {
@@ -198,7 +296,14 @@
                     "endOffset": 847
                 },
                 "from": {
-                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\styles.xml"
+                    "file": "C:\\Android\\Projects\\Project7_TipCalculator\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 19,
+                        "endColumn": 58,
+                        "endOffset": 73
+                    }
                 }
             }
         ]

@@ -1,4 +1,4 @@
-package com.murach.tipcalculator;
+package nguyen.tipcalculator;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -20,7 +20,7 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
-import com.murach.tipcalculator.data.Database;
+import nguyen.tipcalculator.data.Database;
 
 public class TipCalculatorActivity extends Activity 
 implements OnEditorActionListener, OnClickListener {
@@ -99,15 +99,14 @@ implements OnEditorActionListener, OnClickListener {
 
         if(database.getCount() == 0) {
             database.addTip(new Tip(0, 0, 40.60f, .15f));
-            database.addTip(new Tip(0, 0, 40.60f, .15f));
-            Log.d("null", "add new row");
+            database.addTip(new Tip(0, 0, 25.67f, .22f));
         }
 
         ArrayList<Tip> objects = database.getTips();
 
         for(Tip tip : objects) {
             String logAll = "ID: " + tip.getId() +
-                    " | Date: " + String.valueOf(tip.getDateMillis()) +
+                    " | Date: " + tip.getDateStringFormatted() +
                     " | Bill Amount: " + tip.getBillAmount() +
                     " | Tip Percent: " + tip.getTipPercent();
             Log.d("TipCalculator:getTips:", logAll);
@@ -117,8 +116,10 @@ implements OnEditorActionListener, OnClickListener {
             Cursor c = database.getTip();
             c.moveToLast();
 
+            Tip tip = new Tip();
+
             String logLast = "ID: " + c.getString(0) +
-                    " | Date: " + c.getString(1) +
+                    " | Date: " + tip.getDateStringFormatted() +
                     " | Bill Amount: " + c.getString(2) +
                     " | Tip Percent: " + c.getString(3);
 
@@ -191,8 +192,6 @@ implements OnEditorActionListener, OnClickListener {
         if(!billAmountEditText.getText().toString().equals("")){
 
             Tip object = new Tip();
-            object.getDateMillis();
-            object.getDateStringFormatted();
 
             Tip tip = new Tip(1, object.getDateMillis(), billAmount, tipPercent);
 
@@ -221,6 +220,5 @@ implements OnEditorActionListener, OnClickListener {
         int avgDisplay = (int)(tipPercent * 100);
 
         percentTextView.setText(avgDisplay + "%");
-
     }
 }

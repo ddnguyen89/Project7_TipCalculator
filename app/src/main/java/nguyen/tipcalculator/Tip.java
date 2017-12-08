@@ -1,4 +1,4 @@
-package com.murach.tipcalculator;
+package nguyen.tipcalculator;
 
 import android.annotation.SuppressLint;
 
