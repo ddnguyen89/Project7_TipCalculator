@@ -1,5 +1,6 @@
 package com.murach.tipcalculator;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
@@ -39,8 +40,11 @@ implements OnEditorActionListener, OnClickListener {
     // set up preferences
     private SharedPreferences prefs;
 
+    float billAmount;
+    float avg;
+    DecimalFormat df = new DecimalFormat(".00");
+
     Database database;
-    StringBuilder sb;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,8 +52,9 @@ implements OnEditorActionListener, OnClickListener {
         setContentView(R.layout.activity_tip_calculator);
 
         database = new Database(this);
-        sb = new StringBuilder();
-        
+
+        database.open();
+
         // get references to the widgets
         billAmountEditText = (EditText) findViewById(R.id.billAmountEditText);
         percentTextView = (TextView) findViewById(R.id.percentTextView);
@@ -92,25 +97,52 @@ implements OnEditorActionListener, OnClickListener {
         // calculate and display
         calculateAndDisplay();
 
-        database.open();
-
-        ArrayList<Tip> tips = database.getTips();
-        sb.append(tips.size());
-        for(Tip t : tips) {
-            sb.append(t.getClass()); //+ "|" +
-           // t.getBillAmount() + "|" +
-           // t.getTipPercent());
+        if(database.getCount() == 0) {
+            database.addTip(new Tip(0, 0, 40.60f, .15f));
+            database.addTip(new Tip(0, 0, 40.60f, .15f));
+            Log.d("null", "add new row");
         }
 
-        //String logcat = sb;
-        Log.d(this.getClass().getName(), "HI BABY"+sb.toString());
+        ArrayList<Tip> objects = database.getTips();
+
+        for(Tip tip : objects) {
+            String logAll = "ID: " + tip.getId() +
+                    " | Date: " + String.valueOf(tip.getDateMillis()) +
+                    " | Bill Amount: " + tip.getBillAmount() +
+                    " | Tip Percent: " + tip.getTipPercent();
+            Log.d("TipCalculator:getTips:", logAll);
+        }
+
+        if(database != null) {
+            Cursor c = database.getTip();
+            c.moveToLast();
+
+            String logLast = "ID: " + c.getString(0) +
+                    " | Date: " + c.getString(1) +
+                    " | Bill Amount: " + c.getString(2) +
+                    " | Tip Percent: " + c.getString(3);
+
+            Log.d("TipCalculator:getTip:", logLast);
+
+            avg = database.getAverage();
+
+            String logAverage = "Tip Percent AVG: " + df.format(avg);
+
+            Log.d("TipCalculator: : ", logAverage);
+
+            billAmountEditText.setText("");
+
+            tipPercent = avg;
+            int avgDisplay = (int)(avg * 100);
+
+            percentTextView.setText(avgDisplay + "%");
+        }
     }
     
     public void calculateAndDisplay() {        
 
         // get the bill amount
         billAmountString = billAmountEditText.getText().toString();
-        float billAmount; 
         if (billAmountString.equals("")) {
             billAmount = 0;
         }
@@ -152,5 +184,43 @@ implements OnEditorActionListener, OnClickListener {
             calculateAndDisplay();
             break;
         }
+    }
+
+    public void SaveTipCalculation(View view) {
+
+        if(!billAmountEditText.getText().toString().equals("")){
+
+            Tip object = new Tip();
+            object.getDateMillis();
+            object.getDateStringFormatted();
+
+            Tip tip = new Tip(1, object.getDateMillis(), billAmount, tipPercent);
+
+            database.addTip(tip);
+
+            billAmountEditText.setText("");
+
+            tipPercent = avg;
+            int avgDisplay = (int)(avg * 100);
+
+            percentTextView.setText(avgDisplay + "%");
+        } else {
+            billAmount = 0;
+        }
+    }
+
+    public void deleteAll(View view) {
+
+        database.deleteAllTips();
+
+        billAmountEditText.setText("");
+        tipTextView.setText("$0.00");
+        totalTextView.setText("$0.00");
+
+        tipPercent = .15f;
+        int avgDisplay = (int)(tipPercent * 100);
+
+        percentTextView.setText(avgDisplay + "%");
+
     }
 }

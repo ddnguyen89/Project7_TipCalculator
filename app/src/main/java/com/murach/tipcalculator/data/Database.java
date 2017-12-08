@@ -1,14 +1,13 @@
 package com.murach.tipcalculator.data;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.murach.tipcalculator.Tip;
-import com.murach.tipcalculator.TipCalculatorActivity;
 
 import java.util.ArrayList;
 
@@ -22,15 +21,11 @@ public class Database extends SQLiteOpenHelper{
     private static final String DATABASE_NAME = "tips.db";
     public static final String TABLE_TIPS = "tips";
     public static final String COLUMN_ID = "id";
-    public static final int COLUMN_ID_COL = 0;
     public static final String BILL_DATE = "dateMillis";
-    public static final int BILL_DATE_COL = 1;
     public static final String BILL_AMOUNT = "billAmount";
-    public static final int BILL_AMOUNT_COL = 2;
     public static final String TIP_PERCENT = "tipPercent";
-    public static final int TIP_PERCENT_COL = 3;
 
-    private SQLiteDatabase database;
+    SQLiteDatabase database;
 
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -39,21 +34,12 @@ public class Database extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String createTable = "CREATE TABLE " + TABLE_TIPS + " (" +
+        String createTable = "CREATE TABLE IF NOT EXIST " + TABLE_TIPS + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                BILL_DATE + " INTEGER NOT NULL, " +
-                BILL_AMOUNT + " REAL NOT NULL," +
-                TIP_PERCENT + " REAL NOT NULL);";
+                BILL_DATE + " INTEGER, " +
+                BILL_AMOUNT + " REAL, " +
+                TIP_PERCENT + " REAL);";
         db.execSQL(createTable);
-
-        String insertTable = "INSERT INTO tips VALUES('null', 0, 40.60, .15);";
-
-        try {
-            db.execSQL("INSERT INTO tips VALUES('null', 0, 40.60, .15)");
-        } catch (SQLiteException e) {
-            Log.d("tipcalculator", "ERROR");
-        }
-
     }
 
     @Override
@@ -64,9 +50,23 @@ public class Database extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    public void addTip(Tip tip) {
+        open();
+
+        ContentValues values = new ContentValues();
+        values.put(BILL_DATE, tip.getDateMillis());
+        values.put(BILL_AMOUNT, tip.getBillAmount());
+        values.put(TIP_PERCENT, tip.getTipPercent());
+
+        database.insert(TABLE_TIPS, null, values);
+
+        database.close();
+
+    }
+
     public Database open() throws SQLiteException {
 
-        database = getWritableDatabase();   //get reference to the database
+        database = getWritableDatabase();
 
         return this;
     }
@@ -75,45 +75,64 @@ public class Database extends SQLiteOpenHelper{
 
         ArrayList<Tip> objects = new ArrayList<Tip>();
 
-        this.getReadableDatabase();
+        open();
 
-        String[] allColumns = new String[] {
-                COLUMN_ID, BILL_DATE, BILL_AMOUNT, TIP_PERCENT
-        };
+        Cursor c = database.rawQuery("SELECT * FROM " + TABLE_TIPS, null);
 
-        Cursor c = database.query(TABLE_TIPS, null, null, null, null, null, null);
+        if(c.moveToFirst()) {
+            do {
+                Tip object = new Tip();
 
-        while(c.moveToNext()) {
-            Tip object = new Tip();
-            object.setId(c.getInt(COLUMN_ID_COL));
-            object.setDateMillis(c.getInt(BILL_DATE_COL));
-            object.setBillAmount(c.getInt(BILL_AMOUNT_COL));
-            object.setTipPercent(c.getInt(TIP_PERCENT_COL));
+                object.setId(Integer.parseInt(c.getString(0)));
+                object.setDateMillis(Long.parseLong((c.getString(1))));
+                object.setBillAmount(Float.parseFloat(c.getString(2)));
+                object.setTipPercent(Float.parseFloat(c.getString(3)));
 
-            objects.add(object);
-        }
-
-        if(c != null) {
-            c.close();
+                objects.add(object);
+            } while(c.moveToNext());
         }
 
         return objects;
     }
 
-    private static Tip getTipFromCursor(Cursor c) {
-        if(c == null || c.getCount() == 0) {
-            return null;
-        } else {
-            try {
-                Tip tip = new Tip(
-                        c.getLong(Integer.parseInt(COLUMN_ID)),
-                        c.getLong(Integer.parseInt(BILL_DATE)),
-                        c.getFloat(Integer.parseInt(BILL_AMOUNT)),
-                        c.getFloat(Integer.parseInt(TIP_PERCENT)));
-                return tip;
-            } catch(Exception e) {
-                return null;
-            }
+    public Cursor getTip() {
+        String[] allColumns = new String[] {
+                COLUMN_ID, BILL_DATE, BILL_AMOUNT, TIP_PERCENT
+        };
+
+        Cursor c = database.query(TABLE_TIPS, allColumns, null, null, null, null, null);
+
+        if(c != null) {
+            c.moveToFirst();
         }
+
+        return c;
+    }
+
+    public float getAverage() {
+        String[] columns = {"AVG(" + TIP_PERCENT + ")"};
+
+        Cursor c = database.rawQuery("SELECT AVG(" + TIP_PERCENT + ") FROM " + TABLE_TIPS, null);
+
+        c.moveToFirst();
+
+
+        float avgTipPercent = Float.parseFloat(c.getString(0));
+
+        return avgTipPercent;
+    }
+
+    public void deleteAllTips() {
+        open();
+
+        database.execSQL("DELETE FROM " + TABLE_TIPS + ";");
+    }
+
+    public int getCount() {
+        open();
+
+        Cursor c = database.rawQuery("SELECT * FROM " + TABLE_TIPS, null);
+
+        return c.getCount();
     }
 }
